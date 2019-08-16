@@ -10,13 +10,14 @@ import SwiftUI
 
 struct GridView: View {
     @Binding var grid: Grid
+    var size: CGFloat { (UIScreen.main.bounds.width - 40) / CGFloat(grid.rows) }
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ForEach(0..<grid.rows) { row in
                 HStack(alignment: .center, spacing: 0) {
                     ForEach(0..<self.grid.columns) { column in
                         Circle()
-                            .frame(width: 10.0, height: 10.0, alignment: .center)
+                            .frame(width: self.size, height: self.size, alignment: .center)
                             .foregroundColor(self.grid[row, column] ? .green : .white)
                     }
                 }

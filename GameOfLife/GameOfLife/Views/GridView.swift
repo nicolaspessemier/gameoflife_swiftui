@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GridView: View {
     @Binding var grid: Grid
-    var size: CGFloat { (UIScreen.main.bounds.width - 40) / CGFloat(grid.rows) }
+    var size: CGFloat { (UIScreen.main.bounds.width - 2 * Spacing.defaultMargin.value) / CGFloat(grid.rows) }
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ForEach(0..<grid.rows) { row in
